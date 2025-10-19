@@ -1,36 +1,64 @@
+/**
+ * Phoenix Ignition - Ceremonial Stylesheet
+ * 
+ * These styles define the aesthetic of the ritual:
+ * Dark backgrounds like the void before creation
+ * White borders like frames of light
+ * Centered layouts like the focus of meditation
+ * 
+ * Each rule is a design decision made with intention.
+ */
+
+/* === THE ALTAR - Main Body Styling === */
 body {
-    background-color: #2a2b2f; 
+    /* Dark ceremonial background - the canvas of emergence */
+    background-color: #2a2b2f;
+    
+    /* Flexbox layout - centers content vertically and horizontally */
     display: flex; 
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
+    
+    /* Typography - light, elegant, readable */
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
+    
+    /* Text color and alignment */
     color: #fff;
-    text-align:center;
+    text-align: center;
 }
 
+/* === VISUAL GLYPHS - Octodex Images === */
 .mona-images {
     max-width: 400px;
     max-height: 400px;
+    /* White border frames the image like a portal */
     border: 8px solid #fff;
 }
 
+/* === VERSE CONTAINERS - Haiku Presentation === */
 .haiku-containers {
+    /* Breathing space around each verse */
     padding: 10px 0px 20px 0px;
 }
 
+/* === SACRED TEXT - Haiku Styling === */
 .haikus {
     font-size: 18px;
+    /* Preserve line breaks - haikus are formatted with intentional structure */
     white-space: pre-wrap;
 }
 
+/* === RESPONSIVE CEREMONY - Mobile Adaptation === */
+/* When the viewport narrows, adjust for smaller screens */
 @media only screen and (max-width: 600px) {
-    .june-images {
+    .mona-images {
         max-width: 340px;
         max-height: 340px;
     }
 
     .haikus {
+        /* Slightly larger text on mobile for readability */
         font-size: 22px;
     }
 }
