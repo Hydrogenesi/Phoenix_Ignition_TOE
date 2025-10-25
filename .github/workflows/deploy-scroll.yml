@@ -1,0 +1,91 @@
+name: GitHub Actions Deployment Scroll
+
+on:
+  pull_request:
+    types: [labeled]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  deploy-scroll:
+    # Only run when the label "insert" is added
+    if: github.event.label.name == 'insert'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Add scoring-constellation label
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            
+            // Get current labels
+            const { data: currentLabels } = await github.rest.issues.listLabelsOnIssue({
+              owner,
+              repo,
+              issue_number
+            });
+            
+            // Check if scoring-constellation label already exists
+            const hasLabel = currentLabels.some(label => label.name === 'scoring-constellation');
+            
+            if (!hasLabel) {
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number,
+                labels: ['scoring-constellation']
+              });
+              console.log('Added scoring-constellation label');
+            } else {
+              console.log('scoring-constellation label already present');
+            }
+      
+      - name: Post notification comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            
+            const comment = `## 🚀 Deployment Scroll Triggered
+            
+            The deployment scroll has been activated by the \`insert\` label.
+            
+            **Actions taken:**
+            - ✅ Added \`scoring-constellation\` label to this pull request
+            - 🔄 Deployment process initiated
+            
+            _This is an automated message from the GitHub Actions Deployment Scroll workflow._`;
+            
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: comment
+            });
+      
+      - name: Placeholder deployment step
+        run: |
+          echo "============================================"
+          echo "🚀 Deployment Scroll - Placeholder Step"
+          echo "============================================"
+          echo ""
+          echo "This is a placeholder for actual deployment logic."
+          echo "Replace this step with your CI/CD deployment commands."
+          echo ""
+          echo "Triggered by: ${{ github.event.label.name }} label"
+          echo "Pull Request: #${{ github.event.pull_request.number }}"
+          echo "Branch: ${{ github.head_ref }}"
+          echo ""
+          echo "Deployment would proceed here..."
+          echo "============================================"
