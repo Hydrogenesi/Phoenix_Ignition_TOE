@@ -1,0 +1,79 @@
+name: Insert Celebration
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  celebrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for 'insert' label
+        id: check_insert
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = (context.payload.issue.labels || []).map(l => l.name);
+            if (!labels.includes('insert')) {
+              console.log("No 'insert' label found — skipping.");
+              return core.setOutput('skip', 'true');
+            }
+            core.setOutput('skip', 'false');
+
+      - name: Process insert (validate, tag, celebrate)
+        if: ${{ steps.check_insert.outputs.skip == 'false' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+
+            // Simple validation: look for headings or labels present in issue form output
+            const missing = [];
+            if (!/Insert Name|🔧 Insert Name/i.test(body)) missing.push('Insert Name');
+            if (!/Stage Group|🌂 Stage Group/i.test(body)) missing.push('Stage Group');
+            if (!/Invocation Snippet|🔍 Invocation Snippet/i.test(body)) missing.push('Invocation Snippet');
+
+            if (missing.length) {
+              await github.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `:warning: Hi — I detected this issue is missing the following required fields: ${missing.join(', ')}.\n\nPlease update the issue so we can proceed.`
+              });
+              return;
+            }
+
+            // Add scoring-constellation label
+            try {
+              await github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['scoring-constellation']
+              });
+            } catch (err) {
+              console.log('Label add failed:', err.message);
+            }
+
+            // Extract a short poetic refrain if present (simple heuristic)
+            const prMatch = body.match(/Poetic Refrain\s*[:\-]?\s*\n?\s*([\s\S]*?)(?:\n\n|$)/i);
+            let refrain = null;
+            if (prMatch) {
+              refrain = prMatch[1].trim().split('\n')[0];
+            }
+
+            const commentBody = refrain
+              ? `✨ Thank you for your contribution! \n\n> ${refrain} \n\nYour insert has been added to the scoring constellation and queued for review.`
+              : `✨ Thank you for your contribution! Your insert has been added to the scoring constellation and queued for review.`;
+
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: commentBody
+            });
