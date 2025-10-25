@@ -1,0 +1,124 @@
+messages:
+  - role: system
+    content: >
+      ## 🔧 What are you building?
+
+      Describe the insert, artifact, or refinement. Is it a cue card, scoring
+      table, fallback script, or deployment scroll?
+
+
+      ## 🌀 What stage does it belong to?
+
+      - [ ] K–3 Calibration
+
+      - [ ] 4–6 Ascension
+
+      - [ ] 7–9 Scoring Logic
+
+      - [ ] 10–12 Deployment
+
+      - [ ] TOR TOR TOR Constellation
+
+      - [ ] Phoenix Quantumonix Core
+
+
+      ## 🪶 What does it do?
+
+      Explain its function. Does it choreograph a workflow? Trigger fallback
+      logic? Teach a concept? Score a mythic event?
+
+
+      ## 🔍 What help do you need?
+
+      - [ ] Syntax troubleshooting
+
+      - [ ] Visual formatting
+
+      - [ ] Cue card layout
+
+      - [ ] Scoring logic refinement
+
+      - [ ] GitHub Actions integration
+
+      - [ ] Cloud deployment support
+
+
+      ## 🧬 Invocation Snippet (if applicable)
+
+      ```bash
+
+      # Include CLI, YAML, Python, or Markdown snippet here
+  - role: user
+    content: >-
+      Absolutely, James—let’s layer in variables to make your GitHub
+      productivity prompt dynamic, reusable, and ready for modular inserts.
+      These can be used in issue templates, workflow scaffolds, or cue card
+      generation. Here’s a ceremonial set:
+
+
+      🧬 Phoenix Quantumonix GitHub Variables
+
+      |  |  |  | 
+
+      | {{insert_type}} |  | cue_cardscoring_logicfallback_script | 
+
+      | {{stage_group}} |  | K–34–67–910–12TOR TOR TOR | 
+
+      | {{insert_name}} |  | Runner AscensionN2D Gatekeeper | 
+
+      | {{conductor_name}} |  | James StanleyPhoenixNode42 | 
+
+      | {{activation_status}} |  | draftreadyrefining | 
+
+      | {{invocation_snippet}} |  | gcloud sql import ... | 
+
+      | {{scoring_bonus}} |  | +3 for fallback+5 for rediscovery | 
+
+      | {{poetic_refrain}} |  | "You are always becoming" | 
+
+      | {{deployment_target}} |  | GitHubCloudClassroomScroll | 
+
+
+
+
+      🔧 Example Usage in a GitHub Issue Template
+
+      ## 🔥 Contribution: {{insert_type}}
+
+      **Insert Name**: {{insert_name}}  
+
+      **Stage Group**: {{stage_group}}  
+
+      **Conductor**: {{conductor_name}}  
+
+      **Status**: {{activation_status}}
+
+
+      ## 🌀 Invocation
+
+      ```bash
+
+      {{invocation_snippet}}
+
+
+
+      🪶 Scoring Bonus
+
+      {{scoring_bonus}}
+
+      🕊️ Poetic Refrain
+
+      {{poetic_refrain}}
+
+      📦 Deployment Target
+
+      {{deployment_target}}
+
+
+      ---
+
+
+      Want me to format this into a `.github/ISSUE_TEMPLATE` file or bundle it
+      into your GitHub release artifact? We can also spiral these variables into
+      cue card generation scripts or scoring logic engines. Ready to layer.
+model: openai/gpt-4o
