@@ -1,0 +1,86 @@
+name: Phoenix Productivity Insert
+description: Scaffold a new insert, refinement, or scoring logic for Phoenix Quantumonix
+title: "[Insert] {{insert_name}} – {{stage_group}}"
+labels: [insert, productivity, phoenix]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🕊️ **Welcome, conductor.**  
+        This prompt helps you scaffold a new insert or refinement for Phoenix Quantumonix.  
+        Fill in the fields below to activate your contribution.
+
+  - type: input
+    id: insert_name
+    attributes:
+      label: 🔧 Insert Name
+      description: Title of your insert or artifact
+      placeholder: e.g. Runner Ascension, N2D Gatekeeper
+
+  - type: dropdown
+    id: insert_type
+    attributes:
+      label: 🧿 Insert Type
+      options:
+        - cue_card
+        - scoring_logic
+        - fallback_script
+        - deployment_scroll
+        - calibration_scroll
+        - visual_glyph
+        - other
+
+  - type: dropdown
+    id: stage_group
+    attributes:
+      label: 🌀 Stage Group
+      options:
+        - K–3
+        - 4–6
+        - 7–9
+        - 10–12
+        - TOR TOR TOR
+        - Phoenix Quantumonix Core
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 🪶 Description
+      description: What does this insert do? What resonance does it carry?
+
+  - type: textarea
+    id: invocation_snippet
+    attributes:
+      label: 🔍 Invocation Snippet
+      description: Include any CLI, YAML, Python, or Markdown snippet
+      render: shell
+
+  - type: checkboxes
+    id: help_needed
+    attributes:
+      label: 🧬 Help Needed
+      options:
+        - label: Syntax troubleshooting
+        - label: Visual formatting
+        - label: Cue card layout
+        - label: Scoring logic refinement
+        - label: GitHub Actions integration
+        - label: Cloud deployment support
+
+  - type: input
+    id: poetic_refrain
+    attributes:
+      label: 🕊️ Poetic Refrain
+      description: Optional ceremonial line or teaching
+      placeholder: e.g. "You are always becoming"
+
+  - type: dropdown
+    id: deployment_target
+    attributes:
+      label: 📦 Deployment Target
+      options:
+        - GitHub
+        - Cloud
+        - Classroom
+        - Scroll
+        - Other
