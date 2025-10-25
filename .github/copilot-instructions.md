@@ -2,11 +2,17 @@
 
 ## Project Overview
 
-This repository contains the **Phoenix Ignition** web application - a Node.js/Express application that displays haikus with a ceremonial/cosmic theme. It's a simple web server using:
-- **Node.js** with Express framework
-- **EJS** templating engine for views
-- Static asset serving for CSS and images
-- JSON-based data storage for haikus
+This repository has a dual nature:
+
+1. **Aspirational Vision**: Phoenix Ignition - a ceremonial framework for unified emergence, bridging quantum gravity, hydrogen genesis (Hydrogenesi), and mythic storytelling through interactive visualization and live performance.
+
+2. **Current Implementation**: A Node.js/Express web application that displays haikus with GitHub Octocat themes. This serves as a foundational demo using:
+   - **Node.js** with Express framework
+   - **EJS** templating engine for views
+   - Static asset serving for CSS and images
+   - JSON-based data storage for haikus
+
+When working on this repository, understand that while the current code is a simple haiku display app (based on Azure/GitHub samples), the project's broader vision involves cosmological modeling and ceremonial activation.
 
 ## Coding Style & Standards
 
@@ -108,19 +114,23 @@ This project includes Azure Web Apps deployment workflows:
 ✅ Test locally before committing
 ✅ Use semantic and descriptive variable names
 ✅ Write clean, readable code over clever code
-✅ Maintain the poetic/ceremonial theme in content
+✅ Be aware of the project's dual nature (current implementation vs. aspirational vision)
 
 ### Don'ts
 ❌ Don't add unnecessary dependencies
 ❌ Don't modify working code without clear reason
 ❌ Don't commit `node_modules/` or build artifacts
-❌ Don't remove or modify the haiku/ceremonial theme
+❌ Don't assume current content matches the aspirational Phoenix/Hydrogenesi theme
 ❌ Don't break existing routes or functionality
 
 ## Thematic Considerations
 
-This project has a unique ceremonial/cosmic/poetic theme:
-- Maintain the mythic and ceremonial tone in content
-- Preserve references to Phoenix, Hydrogenesi, and cosmic themes
-- Keep the balance between technical implementation and artistic expression
-- Respect the project's creative vision when making suggestions
+This project has an aspirational ceremonial/cosmic/poetic vision (Phoenix Ignition, Hydrogenesi framework):
+- **Long-term Vision**: The repository aims to embody mythic and ceremonial themes related to quantum gravity, hydrogen genesis, and cosmological modeling
+- **Current State**: The actual code is a GitHub Octocat-themed haiku display app (generic haikus about Seattle, robots, etc.)
+- **When Contributing**: 
+  - Be aware of the dual nature of this repository
+  - Current haiku content is GitHub/Octocat themed, not ceremonial
+  - Future enhancements may incorporate the Phoenix/Hydrogenesi vision
+  - Respect both the working code and the aspirational direction
+  - Don't assume all changes need to align with the cosmic theme unless specifically requested
