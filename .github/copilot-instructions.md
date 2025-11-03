@@ -38,6 +38,7 @@ When working on this repository, understand that while the current code is a sim
 
 ## Project Structure
 
+### Current Structure
 ```
 ├── .github/               # GitHub configuration and workflows
 ├── public/                # Static assets (CSS, images)
@@ -49,6 +50,22 @@ When working on this repository, understand that while the current code is a sim
 ├── haikus.json            # Data file for haiku content
 ├── package.json           # Node.js dependencies and scripts
 └── process.json           # Process manager configuration
+```
+
+### Recommended Structure for Growth
+As the project expands, consider organizing code into:
+```
+├── .github/               # Copilot instructions, workflows
+├── public/                # Static assets (images, CSS, JS)
+├── views/                 # Templating files (e.g., EJS, Pug)
+├── routes/                # Express route handlers
+├── controllers/           # Business logic
+├── models/                # Data models (if using ORM)
+├── middleware/            # Custom middleware
+├── utils/                 # Utility functions
+├── tests/                 # Unit/integration tests
+├── package.json           # npm metadata and scripts
+└── README.md              # Project overview
 ```
 
 ## Dependencies
