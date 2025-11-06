@@ -31,7 +31,7 @@ Phoenix_Ignition_TOE/
 ├── views/
 │   └── index.ejs          # Main template file
 ├── index.js               # Main application entry point
-├── haikus.json            # Haiku data with image references
+├── haikus.json            # Array of haiku objects with text and image references
 ├── package.json           # npm configuration
 ├── process.json           # Process configuration
 ├── web.config             # Web server configuration
@@ -65,10 +65,11 @@ No linting tools are currently configured.
 ## Code Style Guidelines
 
 ### JavaScript
-- Use `let` and `const` for variable declarations (avoid `var`)
-- Use single quotes for strings
+- Use `let` for variables that may be reassigned, `const` for constants
+- Prefer single quotes for strings (current code uses single quotes in require statements)
 - Follow existing indentation (2 spaces)
 - Keep code simple and readable
+- Follow patterns established in existing code
 
 ### File Organization
 - Static assets go in `public/`
