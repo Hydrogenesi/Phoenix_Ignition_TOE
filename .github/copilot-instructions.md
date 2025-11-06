@@ -23,9 +23,11 @@ Phoenix_Ignition_TOE/
 
 ## Technology Stack
 - **Runtime**: Node.js
-- **Framework**: Express.js (v4.21.2)
-- **Template Engine**: EJS (v3.1.10)
-- **Development Tools**: nodemon (v2.0.19)
+- **Framework**: Express.js (^4.21.2)
+- **Template Engine**: EJS (^3.1.10)
+- **Development Tools**: nodemon (^2.0.19)
+
+Note: Version numbers use caret (^) ranges, indicating minimum compatible versions.
 
 ## Coding Standards
 
@@ -37,7 +39,9 @@ Phoenix_Ignition_TOE/
 
 ### File Organization
 - Place server logic in `index.js` or new files in the root directory
-- Store static assets in the `public/` directory
+- Store static assets in the `public/` directory with subdirectories:
+  - `public/css/` for stylesheets
+  - `public/images/` for images
 - Place EJS templates in the `views/` directory
 - Data files (like `haikus.json`) belong in the root directory
 
@@ -90,11 +94,13 @@ The application runs on port 3000 by default (or the PORT environment variable i
 ### Modifying Data
 - Haiku data is stored in `haikus.json`
 - Each haiku has a `text` field (string) and an `image` field (filename)
-- Images should be placed in the `public/` directory
+- Images should be placed in the `public/images/` directory
 
 ### Static Assets
-- Place CSS files, images, and JavaScript in the `public/` directory
-- Reference them in templates using root-relative paths (e.g., `/style.css`)
+- Place CSS files in the `public/css/` directory
+- Place images in the `public/images/` directory
+- Place other static assets (JavaScript, etc.) in appropriate `public/` subdirectories
+- Reference them in templates using root-relative paths (e.g., `/css/main.css`, `/images/example.jpg`)
 
 ## Environment Variables
 - `PORT`: Server port (default: 3000)
