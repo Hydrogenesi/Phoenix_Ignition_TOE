@@ -1,18 +1,24 @@
 # GitHub Copilot Coding Agent Instructions
 
 ## Project Overview
-This is a Node.js/Express web application called "Phoenix Ignition" that displays haikus. The project combines a simple haiku display service with elements of a ceremonial framework for unified emergence (cosmological modeling and poetic narrative).
+This is a Node.js/Express web application that displays haikus. It's based on the Azure node sample (nodejs-docs-hello-world) and serves as a demonstration for GitHub Codespaces. The repository is named "Phoenix_Ignition_TOE" and includes aspirational README content about cosmological modeling, but the actual working code is a simple haiku display application.
 
 ## Project Structure
 ```
 Phoenix_Ignition_TOE/
 ├── .github/              # GitHub configuration and workflows
+│   └── workflows/        # CI/CD workflows (Azure, npm publishing)
 ├── public/              # Static assets (CSS, images, etc.)
 ├── views/               # EJS templates for rendering pages
+├── .gitignore           # Git ignore rules
+├── LICENSE              # MIT License
+├── README.md            # Project documentation
 ├── index.js             # Main Express server application
 ├── haikus.json          # Haiku data store
 ├── package.json         # Node.js dependencies and scripts
-└── README.md            # Project documentation
+├── package-lock.json    # Locked dependency versions
+├── process.json         # PM2 process manager configuration
+└── web.config           # IIS/Azure configuration
 ```
 
 ## Technology Stack
@@ -94,8 +100,11 @@ The application runs on port 3000 by default (or the PORT environment variable i
 - `PORT`: Server port (default: 3000)
 
 ## Deployment
-- The project includes Azure Web Apps deployment workflows in `.github/workflows/`
-- The application is configured for deployment via `web.config`
+- The project includes Azure Web Apps deployment workflow in `.github/workflows/azure-webapps-node.yml`
+- NPM publishing workflows are available:
+  - `.github/workflows/npm-publish.yml` - Publishes to npm registry
+  - `.github/workflows/npm-publish-github-packages.yml` - Publishes to GitHub Packages
+- The application is configured for IIS/Azure deployment via `web.config`
 - PM2 process manager configuration is available in `process.json`
 
 ## Important Notes
