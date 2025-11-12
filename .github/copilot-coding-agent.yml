@@ -1,0 +1,78 @@
+# Copilot Coding Agent configuration for Hydrogenesi/Phoenix_Ignition_TOE
+# Replace placeholders below (default_branch, include/exclude paths, test_command, reviewers) to match your repository.
+version: 1
+
+agent:
+  # agent behavior and limits
+  name: copilot-coding-agent
+  max_changes_per_pr: 5          # maximum number of files/changes the agent should include in one PR
+  open_pull_requests: true       # whether the agent is allowed to open PRs
+  pr_branch_prefix: "cagent/"    # branch prefix for agent-created branches
+
+repository:
+  default_branch: "main"         # CHANGE to your repo's default branch if different (e.g., "master", "develop")
+  language_hints: []             # optional: e.g. ["python", "go", "ts"]
+
+paths:
+  include:                       # paths the agent is allowed to modify
+    - "src/**"
+    - "lib/**"
+    - "package.json"
+    - "pyproject.toml"
+  exclude:                       # paths to never modify
+    - ".github/**"
+    - "docs/**"
+    - "node_modules/**"
+    - "vendor/**"
+
+tests:
+  # Command(s) the agent should run to validate changes; agent will run them before opening a PR when possible.
+  # Use shell syntax; multiple commands can be combined with "&&" or a wrapper script.
+  test_command: "npm test || pytest || echo 'no tests configured'"
+  # If you require tests to pass before merging, set this to true:
+  require_tests_to_pass: false
+
+analysis:
+  # Optional static analysis/lint command(s) to run before creating PRs
+  static_analysis_command: "npm run lint || flake8 || echo 'no linter configured'"
+
+review:
+  required_reviewers: 1          # number of human reviewers recommended
+  require_code_owners: false     # set true if you want CODEOWNERS to be required
+  fallback_reviewers:            # reviewers to request if CODEOWNERS/reviewers not configured
+    - "Hydrogenesi"
+
+safety:
+  # When the agent must pause and request a human (manual approval)
+  require_manual_approval_for:
+    - "schema migration"
+    - "database migration"
+    - "major refactor"
+    - "changes to infra or deployment files"
+    - "security-sensitive changes"
+  # File patterns that should always require manual approval
+  manual_approval_file_patterns:
+    - "infra/**"
+    - "deploy/**"
+    - "helm/**"
+    - "k8s/**"
+    - "secrets/**"
+
+pull_request:
+  title_template: "[cagent] {short-description}"
+  body_template: |
+    Automated PR created by Copilot Coding Agent.
+
+    What changed:
+    - Summary of changes
+
+    Tests:
+    - test results or instructions
+
+  labels:
+    - "automation"
+    - "needs-review"
+
+notes: |
+  - Update defaults above (default_branch, include/exclude paths, test_command, reviewers) to reflect this repository's layout.
+  - The agent configuration is advisory — tune max_changes_per_pr and safety rules to match your team's workflow.
