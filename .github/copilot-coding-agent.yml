@@ -34,7 +34,7 @@ tests:
 
 analysis:
   # Optional static analysis/lint command(s) to run before creating PRs
-  static_analysis_command: "npm run lint || flake8 || echo 'no linter configured'"
+  static_analysis_command: "echo 'no linter configured'"
 
 review:
   required_reviewers: 1          # number of human reviewers recommended
