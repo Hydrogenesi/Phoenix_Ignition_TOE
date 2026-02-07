@@ -34,7 +34,7 @@ This is a Node.js web application that displays haikus using Express and EJS tem
 
 ### Dependencies
 - Add production dependencies via `npm install <package>`
-- Add development dependencies via `npm install -D <package>` or `npm install --save-dev <package>`
+- Add development dependencies via `npm install -D <package>`
 - Keep package versions up to date
 
 ## Commands
