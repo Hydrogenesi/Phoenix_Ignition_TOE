@@ -72,14 +72,14 @@ Phoenix_Ignition_TOE/
 ### Adding a New Route
 ```javascript
 app.get('/new-route', (req, res) => {
-  res.render('template-name', {data: yourData});
+  res.render('template-name', { data: yourData });
 });
 ```
 
 ### Rendering with EJS
 ```javascript
 // In route handler
-res.render('index', {haikus: haikus});
+res.render('index', { haikus: haikus });
 
 // In EJS template (views/index.ejs)
 <% haikus.forEach(haiku => { %>
