@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a Node.js web application that displays haikus using Express and EJS templating. The project combines a simple web interface with the Phoenix Ignition framework for unified emergence concepts.
+This is a Node.js web application that displays haikus using Express and EJS templating. The application serves a simple, elegant interface for viewing haiku content.
 
 ## Tech Stack
 
@@ -33,8 +33,8 @@ This is a Node.js web application that displays haikus using Express and EJS tem
 - Use environment variables for configuration (e.g., `process.env.PORT`)
 
 ### Dependencies
-- Add production dependencies via `npm install --save <package>`
-- Add development dependencies via `npm install --save-dev <package>`
+- Add production dependencies via `npm install <package>`
+- Add development dependencies via `npm install -D <package>` or `npm install --save-dev <package>`
 - Keep package versions up to date
 
 ## Commands
