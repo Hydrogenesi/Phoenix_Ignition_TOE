@@ -123,8 +123,11 @@ This application is designed for deployment on Azure App Service:
 
 ### Good: Express Route Pattern
 ```javascript
+// Load data at startup
+const ceremonyData = require('./ceremony.json');
+
+// Use cached data in route handler
 app.get('/ceremony', (req, res) => {
-  const ceremonyData = require('./ceremony.json');
   res.render('ceremony', { data: ceremonyData });
 });
 ```
