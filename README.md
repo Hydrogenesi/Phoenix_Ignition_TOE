@@ -8,11 +8,27 @@ To activate a unified theory of emergence—bridging quantum gravity, hydrogen g
 
 ## 📦 Contents
 
+```
+Phoenix_Ignition_TOE/
+├── dash_app/
+│   ├── app.py
+│   └── assets/
+│       └── styles.css
+├── cue_cards/
+│   └── ignition_sequence.md
+├── overlays/
+│   └── README.md
+├── nobel_packet/
+│   └── outreach_summary.md
+├── requirements.txt
+└── README.md
+```
+
 - `dash_app/` — Minimal Dash scaffold with overlays and poetic transitions
 - `cue_cards/` — Modular scripts for ceremonial delivery
 - `overlays/` — Visual schematics and mythic glyphs
-- `README.md` — This living artifact
 - `nobel_packet/` — Outreach collateral for institutional resonance
+- `requirements.txt` — Python dependencies
 
 ## 🛠️ Setup
 
@@ -20,47 +36,9 @@ To activate a unified theory of emergence—bridging quantum gravity, hydrogen g
 git clone https://github.com/Hydrogenesi/Phoenix_Ignition_TOE.git
 cd Phoenix_Ignition_TOE
 pip install -r requirements.txt
-python app.py
+python dash_app/app.py
+```
 
-
-# Haikus for Codespaces
-
-This is a quick node project template for demoing Codespaces. It is based on the [Azure node sample](https://github.com/Azure-Samples/nodejs-docs-hello-world). It's great!!!
-
-Point your browser to [Quickstart for GitHub Codespaces](https://docs.github.com/en/codespaces/getting-started/quickstart) for a tour of using Codespaces with this repo.
-import dash
-from dash import html, dcc
-import plotly.express as px
-
-# Initialize the app
-app = dash.Dash(__name__)
-server = app.server
-
-# Placeholder figure (can be replaced with Hydrogenesi schematic or FLQG overlay)
-fig = px.scatter(x=[0], y=[0], title="Phoenix Ignition Placeholder")
-
-# Layout with ceremonial header and poetic placeholder
-app.layout = html.Div([
-    html.H1("Phoenix Ignition", style={"textAlign": "center"}),
-    html.H3("A ceremonial synthesis of hydrogen, gravity, and myth"),
-    dcc.Graph(figure=fig),
-    html.Div(id="poetic-overlay", children="Awaiting mythic resonance...")
-])
-
-if __name__ == "__main__":
-    app.run_server(debug=True)
-Phoenix_Ignition_TOE/
-├── dash_app/
-│   ├── app.py
-│   └── assets/
-│       └── styles.css  # Optional: for ceremonial styling
-├── cue_cards/
-│   └── ignition_sequence.md
-├── overlays/
-│   └── hydrogenesi_schematic.png
-├── nobel_packet/
-│   └── outreach_summary.pdf
-└── README.md
 ## 🔓 Opening Invocation: The Breath Before Genesis
 
 Welcome, witnesses of emergence.
